@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "types": ["node", "puppeteer"],
+    "baseUrl": ".",
+    "pretty": true,
+    "noEmit": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules"]
+}
