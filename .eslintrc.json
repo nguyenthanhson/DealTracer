@@ -15,6 +15,297 @@
   },
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "accessor-pairs": "off",
+    "array-bracket-newline": "off", // !!! handled by Prettier, do not enable
+    "array-bracket-spacing": "off", // !!! handled by Prettier, do not enable
+    "array-callback-return": "off",
+    "array-element-newline": "off", // !!! handled by Prettier, do not enable
+    "arrow-body-style": ["error", "as-needed"], // convention, consistency
+    "arrow-parens": "off", // !!! handled by Prettier, do not enable
+    "arrow-spacing": "off", // !!! handled by Prettier, do not enable
+    "block-scoped-var": "off",
+    "block-spacing": "off", // !!! handled by Prettier, do not enable
+    "brace-style": "off", // !!! handled by Prettier, do not enable
+    "callback-return": "off",
+    // TODO: ESLint v5 adds support for {"ignoreDestructuring": true} - this would help with our snake_case
+    // API responses, but ideally we should be converting these to camel via models
+    "camelcase": "error", // convention
+    "capitalized-comments": "off",
+    "class-methods-use-this": "off",
+    "comma-dangle": "off", // !!! handled by Prettier, do not enable
+    "comma-spacing": "off", // !!! handled by Prettier, do not enable
+    "comma-style": "off", // !!! handled by Prettier, do not enable
+    "complexity": "off",
+    "computed-property-spacing": "off", // !!! handled by Prettier, do not enable
+    "consistent-return": "off",
+    "consistent-this": "off",
+    "constructor-super": "error", // prevent oopsies
+    "curly": "off", // !!! handled by Prettier, do not enable
+    "default-case": "off",
+    "dot-location": "off", // !!! handled by Prettier, do not enable
+    "dot-notation": "error", // convention, readability
+    "eol-last": "off", // !!! handled by Prettier, do not enable
+    "eqeqeq": "error", // prevent subtle bugs
+    "for-direction": "error", // prevent infinite oopsies
+    "func-call-spacing": "off", // !!! handled by Prettier, do not enable
+    "func-name-matching": "off",
+    "func-names": "off",
+    "func-style": "off",
+    "function-paren-newline": "off", // !!! handled by Prettier, do not enable
+    "generator-star-spacing": "off", // !!! handled by Prettier, do not enable
+    "getter-return": "error", // prevent oopsies
+    "global-require": "off",
+    "guard-for-in": "off",
+    "handle-callback-err": "off",
+    "id-blacklist": "off",
+    "id-length": "off",
+    "id-match": "off",
+    "implicit-arrow-linebreak": "off", // !!! handled by Prettier, do not enable
+    "indent": "off", // !!! handled by Prettier, do not enable
+    "indent-legacy": "off",
+    "init-declarations": "off",
+    "jsx-quotes": "off", // !!! handled by Prettier, do not enable
+    "key-spacing": "off", // !!! handled by Prettier, do not enable
+    "keyword-spacing": "off", // !!! handled by Prettier, do not enable
+    "line-comment-position": "off",
+    "linebreak-style": "off",
+    "lines-around-comment": "off", // !!! handled by Prettier, do not enable
+    "lines-around-directive": "off",
+    "lines-between-class-members": "off",
+    "max-classes-per-file": ["error", 1], // single responsibility principle
+    "max-depth": ["error", 3], // convention, readability
+    "max-len": "off", // !!! handled by Prettier, do not enable
+    "max-lines": "off",
+    "max-lines-per-function": "off",
+    "max-params": ["error", 4], // prevent overcomplexity
+    "max-statements": "off",
+    "max-statements-per-line": "off",
+    "multiline-comment-style": "off",
+    "multiline-ternary": "off", // !!! handled by Prettier, do not enable
+    "new-cap": "error", // convention, consistency
+    "new-parens": "off", // !!! handled by Prettier, do not enable
+    "newline-after-var": "off",
+    "newline-before-return": "off",
+    "newline-per-chained-call": "off", // !!! handled by Prettier, do not enable
+    "no-alert": "error", // use our own <ConfirmationDialog> for better UX
+    "no-array-constructor": "error", // prevent subtle bugs
+    "no-async-promise-executor": "off",
+    "no-await-in-loop": "off",
+    "no-bitwise": "error", // prevent oopsies
+    "no-buffer-constructor": "off",
+    "no-caller": "error", // prevent difficult future upgrades
+    "no-case-declarations": "error", // prevent subtle bugs
+    "no-catch-shadow": "off", // not needed in modern browsers, deprecated in newer ESLint
+    "no-class-assign": "error", // prevent subtle bugs
+    "no-compare-neg-zero": "error", // prevent subtle bugs
+    "no-cond-assign": "error", // prevent oopsies
+    "no-confusing-arrow": "off", // !!! handled by Prettier, do not enable
+    "no-console": "error", // prevent production oopsies
+    "no-const-assign": "error", // prevent oopsies
+    "no-constant-condition": "error", // prevent oopsies
+    "no-continue": "error", // prevent subtle bugs
+    "no-control-regex": "error", // prevent oopsies
+    "no-debugger": "error", // prevent production oopsies
+    "no-delete-var": "error", // prevent oopsies
+    "no-div-regex": "error", // prevent oopsies
+    "no-dupe-args": "error", // prevent subtle bugs
+    "no-dupe-class-members": "error", // prevent subtle bugs
+    "no-dupe-keys": "error", // prevent subtle bugs
+    "no-duplicate-case": "error", // prevent subtle bugs
+    "no-duplicate-imports": "off", // handled more thoroughly via `import/no-duplicates`
+    "no-else-return": "error",
+    "no-empty": "error", // prevent oopsies
+    "no-empty-character-class": "error", // prevent oopsies
+    "no-empty-function": "off",
+    "no-empty-pattern": "error", // prevent oopsies
+    "no-eq-null": "error", // prevent subtle bugs
+    "no-eval": "error", // prevent security vulnerabilities
+    "no-ex-assign": "error", // prevent oopsies
+    "no-extend-native": "error", // prevent subtle bugs
+    "no-extra-bind": "error", // prevent unnecessary code
+    "no-extra-boolean-cast": "error", // prevent unnecessary code
+    "no-extra-label": "off",
+    "no-extra-parens": "off", // !!! handled by Prettier, do not enable
+    "no-extra-semi": "off", // !!! handled by Prettier, do not enable
+    "no-fallthrough": "error", // prevent subtle bugs
+    "no-floating-decimal": "off", // !!! handled by Prettier, do not enable
+    "no-func-assign": "error", // prevent oopsies
+    "no-global-assign": "error", // prevent oopsies
+    "no-implicit-coercion": "error", // convention, readability
+    "no-implicit-globals": "error", // prevent oopsies
+    "no-implied-eval": "error", // prevent security vulnerabilities
+    "no-inline-comments": "off",
+    "no-inner-declarations": "error", // prevent oopsies
+    "no-invalid-regexp": "error", // prevent oopsies
+    "no-invalid-this": "off",
+    "no-irregular-whitespace": "error", // prevent oopsies
+    "no-iterator": "error", // prevent use of deprecated feature
+    "no-label-var": "error", // prevent oopsies
+    "no-labels": "off",
+    "no-lone-blocks": "error", // convention, readability
+    "no-lonely-if": "error", // convention, readability and brevity
+    "no-loop-func": "error", // prevent subtle bugs
+    "no-misleading-character-class": "off",
+    "no-mixed-operators": "off", // !!! handled by Prettier, do not enable
+    "no-mixed-requires": "off",
+    "no-mixed-spaces-and-tabs": "off", // !!! handled by Prettier, do not enable
+    "no-multi-assign": "off",
+    "no-multi-spaces": "off", // !!! handled by Prettier, do not enable
+    "no-multi-str": "off",
+    "no-multiple-empty-lines": "off", // !!! handled by Prettier, do not enable
+    "no-native-reassign": "off", // replaced by no-global-assign
+    "no-negated-condition": "error", // convention, readability
+    "no-negated-in-lhs": "off",
+    "no-nested-ternary": "error", // convention, readability
+    "no-new": "error", // prevent subtle bugs
+    "no-new-func": "error", // convention, readability
+    "no-new-object": "error", // convention, consistency and brevity
+    "no-new-require": "off",
+    "no-new-symbol": "error", // prevent oopsies
+    "no-new-wrappers": "error", // prevent subtle bugs
+    "no-obj-calls": "error", // prevent oopsies
+    "no-octal": "error", // prevent subtle bugs
+    "no-octal-escape": "error", // prevent use of deprecated feature
+    "no-param-reassign": "error", // prevent subtle bugs
+    "no-path-concat": "off",
+    "no-plusplus": "off",
+    "no-process-env": "off",
+    "no-process-exit": "off",
+    "no-proto": "error", // prevent use of deprecated feature
+    "no-prototype-builtins": "off",
+    "no-redeclare": "error", // prevent subtle bugs
+    "no-regex-spaces": "error", // convention, readability
+    "no-restricted-globals": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "lodash",
+            "message": "Please favor native JS over lodash. The small subset of modules we do support can be imported from 'common/utils/lodash'. If you'd like to add a module, present a use case in #ui-engineering."
+          }
+        ]
+      }
+    ],
+    "no-restricted-modules": "off",
+    "no-restricted-properties": "off",
+    "no-restricted-syntax": "off",
+    "no-return-assign": "error", // convention, readability
+    "no-return-await": "off",
+    "no-script-url": "error", // prevent security vulnerabilities
+    "no-self-assign": "error", // prevent oopsies
+    "no-self-compare": "error", // prevent oopsies
+    "no-sequences": "error", // convention, readability
+    "no-shadow": "error", // prevent subtle bugs
+    "no-shadow-restricted-names": "error", // prevent collisions
+    "no-spaced-func": "off", // !!! handled by Prettier, do not enable
+    "no-sparse-arrays": "error", // prevent oopsies
+    "no-sync": "off",
+    "no-tabs": "off",
+    "no-template-curly-in-string": "off",
+    "no-ternary": "off",
+    "no-this-before-super": "error", // prevent oopsies
+    "no-throw-literal": "error", // ensure errors contain stack trace
+    "no-trailing-spaces": "off", // !!! handled by Prettier, do not enable
+    "no-undef": "error", // prevent oopsies
+    "no-undef-init": "error", // prevent unnecessary code
+    "no-undefined": "error", // prevent subtle bugs
+    "no-underscore-dangle": "off",
+    "no-unexpected-multiline": "error", // prevent subtle bugs
+    "no-unmodified-loop-condition": "error", // prevent oopsies
+    "no-unneeded-ternary": "error", // prevent unnecessary code
+    "no-unreachable": "error", // prevent oopsies
+    "no-unsafe-finally": "error", // prevent subtle bugs
+    "no-unsafe-negation": "error", // prevent subtle bugs
+    "no-unused-expressions": "error", // prevent oopsies
+    "no-unused-labels": "error", // prevent unnecessary code
+    "no-unused-vars": "error", // prevent unnecessary code
+    "no-use-before-define": "error", // prevent oopsies
+    "no-useless-call": "error", // prevent unnecessary code
+    "no-useless-computed-key": "off",
+    "no-useless-concat": "error", // prevent unnecessary code
+    "no-useless-constructor": "off",
+    "no-useless-escape": "error", // prevent unnecessary code
+    "no-useless-rename": "error", // prevent unnecessary code
+    "no-useless-return": "off",
+    "no-var": "error", // convention, consistency
+    "no-void": "error", // convention, consistency
+    "no-warning-comments": "off",
+    "no-whitespace-before-property": "off", // !!! handled by Prettier, do not enable
+    "no-with": "error", // prevent subtle bugs
+    "nonblock-statement-body-position": "off", // !!! handled by Prettier, do not enable
+    "object-curly-newline": "off", // !!! handled by Prettier, do not enable
+    "object-curly-spacing": "off", // !!! handled by Prettier, do not enable
+    "object-property-newline": "off", // !!! handled by Prettier, do not enable
+    "object-shorthand": ["error", "never"], // prevent subtle bugs
+    "one-var": "off",
+    "one-var-declaration-per-line": "off", // !!! handled by Prettier, do not enable
+    "operator-assignment": ["error", "always"], // convention, consistency
+    "operator-linebreak": "off", // !!! handled by Prettier, do not enable
+    "padded-blocks": "off", // !!! handled by Prettier, do not enable
+    "padding-line-between-statements": "off",
+    "prefer-arrow-callback": "error", // convention, consistency and brevity
+    "prefer-const": "error", // convention, clarity of intent
+    "prefer-destructuring": [
+      "error",
+      {
+        // convention, brevity
+        "array": false,
+        "object": true
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "prefer-numeric-literals": "off",
+    "prefer-object-spread": "off",
+    "prefer-promise-reject-errors": "off",
+    "prefer-reflect": "off",
+    "prefer-rest-params": "off",
+    "prefer-spread": "error", // convention, brevity
+    "prefer-template": "error", // convention, readability
+    "quote-props": "off", // !!! handled by Prettier, do not enable
+    "quotes": "off", // !!! handled by Prettier, do not enable
+    "radix": ["error", "as-needed"], // explicit "10" radix is no longer needed in modern browsers
+    "require-atomic-updates": "off",
+    "require-await": "off",
+    "require-jsdoc": "off",
+    "require-unicode-regexp": "off",
+    "require-yield": "error", // prevent oopsies
+    "rest-spread-spacing": "off", // !!! handled by Prettier, do not enable
+    "semi": "off", // !!! handled by Prettier, do not enable
+    "semi-spacing": "off", // !!! handled by Prettier, do not enable
+    "semi-style": "off", // !!! handled by Prettier, do not enable
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ], // convention, findability
+    "sort-keys": "off",
+    "sort-vars": "off",
+    "space-before-blocks": "off", // !!! handled by Prettier, do not enable
+    "space-before-function-paren": "off", // !!! handled by Prettier, do not enable
+    "space-in-parens": "off", // !!! handled by Prettier, do not enable
+    "space-infix-ops": "off", // !!! handled by Prettier, do not enable
+    "space-unary-ops": "off", // !!! handled by Prettier, do not enable
+    "spaced-comment": "off",
+    "strict": "off",
+    "switch-colon-spacing": "off", // !!! handled by Prettier, do not enable
+    "symbol-description": "off",
+    "template-curly-spacing": "off", // !!! handled by Prettier, do not enable
+    "template-tag-spacing": "off", // !!! handled by Prettier, do not enable
+    "unicode-bom": "off", // !!! handled by Prettier, do not enable
+    "use-isnan": "error", // prevent subtle bugs
+    "valid-jsdoc": "off",
+    "valid-typeof": "error", // prevent oopsies
+    "vars-on-top": "off",
+    "wrap-iife": "off", // !!! handled by Prettier, do not enable
+    "wrap-regex": "off", // !!! handled by Prettier, do not enable
+    "yield-star-spacing": "off", // !!! handled by Prettier, do not enable
+    "yoda": "error", // convention, readability,
+    "max-nested-callbacks": "off",
+    "no-magic-numbers": "off"
   }
 }
