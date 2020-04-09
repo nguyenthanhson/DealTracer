@@ -15,7 +15,12 @@
   },
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "accessor-pairs": "off",
     "array-bracket-newline": "off", // !!! handled by Prettier, do not enable
     "array-bracket-spacing": "off", // !!! handled by Prettier, do not enable
@@ -238,7 +243,6 @@
     "object-curly-newline": "off", // !!! handled by Prettier, do not enable
     "object-curly-spacing": "off", // !!! handled by Prettier, do not enable
     "object-property-newline": "off", // !!! handled by Prettier, do not enable
-    "object-shorthand": ["error", "never"], // prevent subtle bugs
     "one-var": "off",
     "one-var-declaration-per-line": "off", // !!! handled by Prettier, do not enable
     "operator-assignment": ["error", "always"], // convention, consistency
