@@ -11,18 +11,18 @@ const puppeteer = require('puppeteer');
   await page.screenshot({path: 'tiki.png'})
 
   await page.waitForSelector('div[id="onesignal-popover-dialog"]')
-  page.on('dialog', async dialog => {
-    console.log(dialog.message());
-    await dialog.dismiss();
-  })
- // await page.click('button[id="onesignal-popover-cancel-button"]')
+  // page.on('dialog', async dialog => {
+  //   console.log(dialog.message());
+  //   await dialog.dismiss();
+  // })
+ await page.click('#onesignal-popover-cancel-button')
 
   //Click Sign In button
-  await page.click('#//button[@class="Userstyle__UserDropDownButton-xrezqc-10 kZkOAY"][1]')
+  await page.click('#//button[class="Userstyle__UserDropDownButton-xrezqc-10 kZkOAY"][1]')
   
-  await page.waitForSelector('input[id="email"]')
-  await page.type('input[id="email"]','kimdat10@gmail.com')
-  await page.type('input[id="password"]','1234Abcd')
+  await page.waitForSelector('email')
+  await page.type('email','kimdat10@gmail.com')
+  await page.type('password','1234Abcd')
   
   await page.click('button[class="UserModalstyle__RightButton-uq4a18-8 jpHvvv"]')
 
