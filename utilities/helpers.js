@@ -28,16 +28,13 @@ async function startBrowser() {
     defaultViewport: null,
     args: ["--start-maximized", "--start-fullscreen"],
   };
-  const browser = await puppeteer.launch(options);
+  const browser = await puppeteer.launch(fullScreenOptions);
   const page = await browser.newPage();
+  await page.setUserAgent(
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36"
+  );
 
   page.setDefaultNavigationTimeout(60 * 2 * 1000);
-  process.on("unhandledRejection", (reason, p) => {
-    logger.error("Unhandled Rejection at: Promise", p, "reason:", reason);
-    browser.close();
-    process.exit();
-  });
-
   return { browser, page };
 }
 /**
@@ -73,7 +70,7 @@ async function login(page) {
     logger.info("click cancel signal button");
     await page.click("#onesignal-popover-cancel-button");
   } catch (error) {
-    logger.error(error);
+    logger.error(`error when clicking on popup ${error}`);
   }
 
   await page.hover(USER_ICON_SELECTOR);
@@ -87,7 +84,8 @@ async function login(page) {
   await page.type(PASSWORD_INPUT_SELECTOR, CREDS.pass);
 
   await page.click(LOGIN_BUTTON_SELECTOR);
-  logger.info("logging success");
+  logger.info("login success");
+  // TODO: navigate to https://tiki.vn/customer/account/login instead of hover and click on dialog
 }
 
 module.exports = { startBrowser, closeBrowser, login };
